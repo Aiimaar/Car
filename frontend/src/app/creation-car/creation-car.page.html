@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Añadir Coche</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Añadir Coche</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <form [formGroup]="carForm" (ngSubmit)="createCar()">
+
+    <ion-item>
+      <ion-label position="floating">Marca</ion-label>
+      <ion-input formControlName="brand" type="text"></ion-input>
+    </ion-item>
+    <ion-note color="danger" *ngIf="getFormControl('brand')?.hasError('required') && getFormControl('brand')?.touched">
+      The brand is required.
+    </ion-note>
+
+    <ion-item>
+      <ion-label position="floating">Modelo</ion-label>
+      <ion-input formControlName="model" type="text"></ion-input>
+    </ion-item>
+    <ion-note color="danger" *ngIf="getFormControl('model')?.hasError('required') && getFormControl('model')?.touched">
+      The model is required.
+    </ion-note>
+
+    <ion-item>
+      <ion-label position="floating">Engine</ion-label>
+      <ion-input formControlName="engine" type="text"></ion-input>
+    </ion-item>
+    <ion-note color="danger" *ngIf="getFormControl('engine')?.hasError('required') && getFormControl('engine')?.touched">
+      The engine is required.
+    </ion-note>
+
+    <ion-button type="submit" [disabled]="!carForm.valid">Create</ion-button>
+    <ion-button (click)="goHome()">Home</ion-button>
+
+  </form>
+
+</ion-content>

@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Concesionario
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Concesionario</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    
+    <p>Nuestros Coches</p>
+    <ion-button (click)="goToCarList()">Ir a la lista de coches</ion-button>
+    <ion-button (click)="goToCreateCar()">Añadir coche</ion-button>
+
+    <ion-list>
+      <ion-item *ngFor="let c of cars">
+        <p>Marca: {{c.brand}}</p>
+        <p>Modelo: {{c.model}}</p>
+        <p>Motor: {{c.engine}}</p>
+      </ion-item>
+
+    </ion-list>
+  </div>
+</ion-content>

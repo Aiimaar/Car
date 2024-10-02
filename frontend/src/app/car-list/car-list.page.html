@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>car-list</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">car-list</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div>
+    <p class="car-list-header">Listado de Coches</p>
+    <ion-list>
+      <ion-item *ngFor="let c of showCars">
+        <ion-label>
+          <h2>Marca: {{c.brand}}</h2>
+          <h2>Modelo: {{c.model}}</h2>
+          <h3>Motor: {{c.engine}}</h3>
+        </ion-label>
+        <ion-button (click)="startEditCar(c)">Editar</ion-button>
+        <ion-button (click)="deleteCar(c.id)" color="danger">Eliminar</ion-button>
+      </ion-item>
+    </ion-list>
+
+    <ion-button class="home-button" (click)="goHome()">Home</ion-button>
+  </div>
+
+  <div *ngIf="isEditing">
+    <p class="car-list-header">Editar Coche</p>
+    <form (ngSubmit)="updateCar()">
+      <ion-item>
+        <ion-label position="floating">Marca</ion-label>
+        <ion-input [(ngModel)]="carToEdit.brand" name="brand"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Modelo</ion-label>
+        <ion-input [(ngModel)]="carToEdit.model" name="model"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Motor</ion-label>
+        <ion-input [(ngModel)]="carToEdit.engine" name="engine"></ion-input>
+      </ion-item>
+
+      <ion-button expand="full" type="submit">Guardar</ion-button>
+      <ion-button expand="full" color="light" (click)="cancelEdit()">Cancelar</ion-button>
+    </form>
+  </div>
+
+</ion-content>
