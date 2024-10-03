@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CarService } from '../services/car.service';
 
 @Component({
   selector: 'app-home',
@@ -8,23 +9,25 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
 
-  cars: Array<any> = [
-    {
-      brand: "C/ Luján Pérez",
-      model: "922928627",
-      engine: "XX"
-    },{
-      brand: "C/ Luján Pérez",
-      model: "922928627",
-      engine: "XX"
-    },{
-      brand: "C/ Luján Pérez",
-      model: "922928627",
-      engine: "XX"
-    }
-  ]
+  showCars: any = [];
 
-  constructor(private router: Router) {}
+  constructor(private carService: CarService, private router: Router) {}
+
+  ngOnInit() {
+    this.getAllCars();
+  }
+
+  ionViewWillEnter(){
+    this.getAllCars();
+  }
+
+  getAllCars() {
+    this.carService.getAll().subscribe(data => {
+      console.log("Data has arrived");
+      console.log(data);
+      this.showCars = data;
+    });
+  }
 
   goToCarList(){
     this.router.navigateByUrl("/car-list");

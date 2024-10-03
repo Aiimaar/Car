@@ -19,6 +19,10 @@ export class CarListPage implements OnInit {
     this.getAllCars();
   }
 
+  ionViewWillEnter(){
+    this.getAllCars();
+  }
+
   getAllCars() {
     this.carService.getAll().subscribe(data => {
       console.log("Data has arrived");

@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>car-list</ion-title>
+    <ion-title>Lista De Coches del Concesionario</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,20 +12,31 @@
   </ion-header>
 
   <div>
-    <p class="car-list-header">Listado de Coches</p>
+    <p class="car-list-header">Coches Modificables</p>
     <ion-list>
       <ion-item *ngFor="let c of showCars">
         <ion-label>
           <h2>Marca: {{c.brand}}</h2>
           <h2>Modelo: {{c.model}}</h2>
-          <h3>Motor: {{c.engine}}</h3>
+          <h2>Motor: {{c.engine}}</h2>
+          <h3>Precio: {{c.price}}</h3>
         </ion-label>
-        <ion-button (click)="startEditCar(c)">Editar</ion-button>
-        <ion-button (click)="deleteCar(c.id)" color="danger">Eliminar</ion-button>
+        <ion-button (click)="startEditCar(c)">
+          <ion-icon name="create" slot="start"></ion-icon>
+          Editar
+        </ion-button>
+        
+        <ion-button (click)="deleteCar(c.id)" color="danger">
+          <ion-icon name="trash" slot="start"></ion-icon>
+          Eliminar
+        </ion-button>
       </ion-item>
     </ion-list>
 
-    <ion-button class="home-button" (click)="goHome()">Home</ion-button>
+    <ion-button class="home-button" (click)="goHome()" (click)="getAllCars()">
+      <ion-icon name="home" slot="start"></ion-icon>
+      Home
+    </ion-button>
   </div>
 
   <div *ngIf="isEditing">
@@ -44,6 +55,11 @@
       <ion-item>
         <ion-label position="floating">Motor</ion-label>
         <ion-input [(ngModel)]="carToEdit.engine" name="engine"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Precio</ion-label>
+        <ion-input [(ngModel)]="carToEdit.price" name="price"></ion-input>
       </ion-item>
 
       <ion-button expand="full" type="submit">Guardar</ion-button>

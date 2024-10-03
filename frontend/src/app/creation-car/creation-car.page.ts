@@ -10,6 +10,7 @@ import { CarService } from '../services/car.service';
 })
 export class CreationCarPage implements OnInit {
 
+  showCars: any = [];
   carForm: FormGroup;
 
   constructor(public formBuilder: FormBuilder,
@@ -18,7 +19,8 @@ export class CreationCarPage implements OnInit {
       this.carForm = this.formBuilder.group({
         brand: ['', Validators.compose([Validators.required])],
         model: ['', Validators.compose([Validators.required])],
-        engine: ['', Validators.compose([Validators.required])]
+        engine: ['', Validators.compose([Validators.required])],
+        price: ['', Validators.compose([Validators.required])]
       })
     }
 
@@ -34,6 +36,14 @@ export class CreationCarPage implements OnInit {
     } else {
       console.log('Invalid Form');
     }
+  }
+
+  getAllCars() {
+    this.carService.getAll().subscribe(data => {
+      console.log("Data has arrived");
+      console.log(data);
+      this.showCars = data;
+    });
   }
 
   getFormControl(field: string){

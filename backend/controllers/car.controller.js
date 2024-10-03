@@ -5,8 +5,10 @@ exports.create = (req, res) => {
     const car = {
         brand: req.body.brand,
         model: req.body.model,
-        engine: req.body.engine
+        engine: req.body.engine,
+        price: req.body.price
     }
+    console.log("Coche creado: ", car);
 
     Car.create(car).then((data) => {
         res.send(data);
@@ -20,16 +22,15 @@ exports.findAll = (req, res) => {
 }
 
 exports.update = (req, res) => {
-    console.log("llegó aquí")
     const id = req.params.id;
     console.log(id)
 
     const updatedCar = {
         brand: req.body.brand,
         model: req.body.model,
-        engine: req.body.engine
+        engine: req.body.engine,
+        price: req.body.price
     };
-    console.log(updatedCar);
 
     Car.update(updatedCar, {
         where: { id: id }

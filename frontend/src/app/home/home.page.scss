@@ -1,27 +1,53 @@
 #container {
-  text-align: center;
+  padding: 25px;
+  margin-bottom: 28em;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
+  .title {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 2em;
+    color: blue;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
+  .car-list-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+  ion-item {
+    --inner-padding-start: 0;
+    --inner-padding-end: 0;
+  }
 
-  color: #8c8c8c;
+  .header-item, .car-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
 
-  margin: 0;
-}
+  .car-column-header {
+    flex: 1;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+  }
 
-#container a {
-  text-decoration: none;
+  .car-column {
+    flex: 1;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  ion-button {
+    font-size: 16px;
+  }
 }
