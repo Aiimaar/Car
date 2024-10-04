@@ -1,20 +1,20 @@
-# Concesionario El Rincón
+# El Rincón Dealership
 
-Este proyecto va sobre un concesionario en el que se realiza un CRUD, hecho con Ionic + Sequelize + Angular.
+This project is about a car dealership where a CRUD is performed, built with Ionic + Sequelize + Angular.
 
-### Pre-requisitos 📋
+### Prerequisites 📋
 
-Instalar Ionic en el directorio donde se vaya a probar la app.
+Install Ionic in the directory where you will be testing the app.
 
-## Enlace POSTMAN
-https://documenter.getpostman.com/view/38432154/2sAXxLCaFU
+## POSTMAN Link
+[https://documenter.getpostman.com/view/38432154/2sAXxLCaFU](https://documenter.getpostman.com/view/38432154/2sAXxLCaFU)
 
-## Construido con 🛠️
+## Built with 🛠️
 
 * [Ionic](https://ionicframework.com/)
 * [Angular](https://angular.dev/)
 * [Sequelize](https://sequelize.org/)
 
-## Autores ✒️
+## Authors ✒️
 
-* **Aimar Alonso** - *Trabajo Inicial* - [Aiimaar](https://github.com/aiimaar)
+* **Aimar Alonso** - *Initial Work* - [Aiimaar](https://github.com/aiimaar)
